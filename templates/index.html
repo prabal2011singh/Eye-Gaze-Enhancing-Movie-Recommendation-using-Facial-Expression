@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotion Based Movie Recommendation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Emotion Based Movie Recommendation</h1>
+    <button onclick="captureEmotion()">Capture Emotion</button>
+    <div>
+        <img src="{{ url_for('video_feed') }}" width="600px" height="400px" id="video" />
+    </div>
+    <script>
+        function captureEmotion() {
+            fetch('/capture', {
+                method: 'POST'
+            }).then(response => response.text())
+              .then(data => {
+                document.open();
+                document.write(data);
+                document.close();
+              });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotion Based Movie Recommendation System</title>
+    <script src="https://webgazer.cs.brown.edu/webgazer.js?" defer></script>
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Emotion Based Movie Recommendation System</h1>
+    <h2>Recognized Emotion: {{ emotion }}</h2>
+
+    <h3>Recommended Movies:</h3>
+    <div id="buttons-container">
+        {% for movie in recommendations %}
+            <button class="button-30" role="button">{{ movie }}</button>
+        {% endfor %}
+    </div>
+
+ 
+
+    <h3>Eye Gaze Recommended Movies:</h3>
+
+    <button id="startCalibration" class="button-64" role="button"><span class="text">Calibration</span> </button>
+
+    <ul id="recommended-list"></ul>
+
+</body>
+</html>
